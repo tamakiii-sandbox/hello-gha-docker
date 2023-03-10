@@ -15,7 +15,13 @@ jobs:
       - uses: docker/build-push-action@v4
         with:
           push: false
+          load: true
           tags: ${{ github.repository }}:latest
           cache-from: type=gha
           cache-to: type=gha,mode=max
+      - run: |
+          which docker
+          docker --version
+          docker buildx version
+          docker image ls
       - run: docker run --rm ${{ github.repository }}:latest cat /etc/os-release
