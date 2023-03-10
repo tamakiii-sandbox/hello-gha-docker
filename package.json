@@ -1,0 +1,23 @@
+{
+  "name": "hello-gha-docker",
+  "version": "1.0.0",
+  "description": "## How to use ```sh make -f docker.mk build ```",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tamakiii-sandbox/hello-gha-docker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tamakiii-sandbox/hello-gha-docker/issues"
+  },
+  "homepage": "https://github.com/tamakiii-sandbox/hello-gha-docker#readme",
+  "dependencies": {
+    "jest": "^29.5.0"
+  }
+}
