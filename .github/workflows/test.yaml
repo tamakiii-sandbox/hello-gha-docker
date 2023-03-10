@@ -7,7 +7,7 @@ on:
       - main
 
 env:
-  TAG: ${GITHUB_REF##*/}
+  TAG: ${{ vars.GITHUB_REF_NAME }}
 
 jobs:
   test:
