@@ -3,7 +3,7 @@
 install: \
 	node_modules
 
-test:
+test: install
 	npx --no -- jest
 
 uninstall:

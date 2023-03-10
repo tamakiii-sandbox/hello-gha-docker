@@ -1,4 +1,4 @@
-.PHONY: help build bash clean
+.PHONY: help build bash test clean
 
 ORGANIZATION := tamakiii-sandbox
 REPOSITORY := hello-gha-docker
@@ -13,7 +13,10 @@ build: Dockerfile
 	docker build -t $(IMAGE):$(TAG) .
 
 bash: build
-	docker run -it --rm -v $(PWD):$(WORKDIR) -w $(WORKDIR) $(IMAGE):$(TAG) $@
+	docker run --rm -v $(PWD):$(WORKDIR) -w $(WORKDIR) $(IMAGE):$(TAG) $@
+
+test:
+	docker run --rm -v $(PWD):$(WORKDIR) -w $(WORKDIR) $(IMAGE):$(TAG) make test
 
 clean:
 	docker image rm $(IMAGE):$(TAG)
