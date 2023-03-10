@@ -1,16 +1,19 @@
 .PHONY: help build bash clean
 
-TAG := tamakiii-sandbox/hello-gha-docker
+ORGANIZATION := tamakiii-sandbox
+REPOSITORY := hello-gha-docker
+IMAGE := $(ORGANIZATION)/$(REPOSITORY)
+TAG := latest
 WORKDIR :=  /usr/local/tamakiii-sandbox/hello-gha-docker
 
 help:
 	@cat $(firstword $(MAKEFILE_LIST))
 
 build: Dockerfile
-	docker build -t $(TAG) .
+	docker build -t $(IMAGE):$(TAG) .
 
 bash: build
-	docker run -it --rm -v $(PWD):$(WORKDIR) -w $(WORKDIR) $(TAG) $@
+	docker run -it --rm -v $(PWD):$(WORKDIR) -w $(WORKDIR) $(IMAGE):$(TAG) $@
 
 clean:
-	docker image rm $(TAG)
+	docker image rm $(IMAGE):$(TAG)
