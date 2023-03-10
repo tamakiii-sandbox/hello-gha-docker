@@ -1,4 +1,4 @@
-.PHONY: help install
+.PHONY: help install uninstall
 
 install: \
 	node_modules
