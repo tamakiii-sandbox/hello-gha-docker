@@ -18,4 +18,4 @@ jobs:
           tags: ${{ github.repository }}:latest
           cache-from: type=gha
           cache-to: type=gha,mode=max
-      - run: docker run -it --rm ${{ github.repository }}:latest cat /etc/os-release
+      - run: docker run --rm ${{ github.repository }}:latest cat /etc/os-release
