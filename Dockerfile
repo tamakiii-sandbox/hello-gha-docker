@@ -1,7 +1,7 @@
 FROM amazonlinux:2023.0.20230308.0
 
 RUN dnf install -y \
-      main \
+      man \
       which \
       less \
       make \
