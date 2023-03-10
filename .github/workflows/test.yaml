@@ -7,7 +7,7 @@ on:
       - main
 
 env:
-  TAG: ${{ github.ref_name }}
+  TAG: ${GITHUB_REF##*/}
 
 jobs:
   test:
@@ -18,7 +18,7 @@ jobs:
       - uses: docker/build-push-action@v4
         with:
           push: false
-          tags: tamakiii-sandbox/hello-gha-docker:${{ env.TAG }}
+          tags: ${{ github.repository }}:${{ env.TAG }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
       - run: |
