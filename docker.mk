@@ -12,7 +12,7 @@ build: Dockerfile
 	docker build -t $(IMAGE):$(TAG) .
 
 bash: build
-	docker run -it --rm $(IMAGE):$(TAG) $@
+	docker run -it -v $(PWD):/usr/local/tamakiii-sandbox/hello-gha-docker --rm $(IMAGE):$(TAG) $@
 
 test:
 	docker run --rm $(IMAGE):$(TAG) make test
