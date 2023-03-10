@@ -6,6 +6,9 @@ on:
     branches:
       - main
 
+env:
+  TAG: ${{ github.ref_name }}
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -15,6 +18,7 @@ jobs:
       - uses: docker/build-push-action@v4
         with:
           push: false
+          tags: tamakiii-sandbox/hello-gha-docker:${{ env.TAG }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
       - run: |
