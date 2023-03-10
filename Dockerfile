@@ -9,3 +9,9 @@ RUN dnf install -y \
       && \
     dnf clean all && \
     rm -rf /var/cache/dnf
+
+COPY . /usr/local/tamakiii-sandbox/hello-gha-docker
+
+RUN make -C /usr/local/tamakiii-sandbox/hello-gha-docker install
+
+WORKDIR /usr/local/tamakiii-sandbox/hello-gha-docker
