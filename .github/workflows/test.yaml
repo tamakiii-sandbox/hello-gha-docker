@@ -16,10 +16,10 @@ jobs:
         with:
           push: false
           load: true
-          tags: ${{ github.repository }}:latest
+          tags: ${{ github.repository }}:${GITHUB_REF#refs/heads/}
           cache-from: type=gha
           cache-to: type=gha,mode=max
       - run: make -f docker.mk test
         env:
           IMAGE: ${{ github.repository }}
-          TAG: latest
+          TAG: ${GITHUB_REF#refs/heads/}
