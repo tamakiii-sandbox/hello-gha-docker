@@ -2,6 +2,8 @@ name: Docker
 
 on:
   create:
+    branches-ignore:
+      - **
     tags:
       - v*
 jobs:
